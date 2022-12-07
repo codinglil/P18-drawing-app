@@ -84,3 +84,8 @@ decreaseBtn.addEventListener("click", () => {
   }
   updateSizeOnScreeen();
 });
+
+// clear context/ screen event
+clearAll.addEventListener("click", () =>
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+);
