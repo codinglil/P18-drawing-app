@@ -1,7 +1,13 @@
 const canvas = document.getElementById("canvas");
+const increaseBtn = document.getElementById("increase");
+const decreaseBtn = document.getElementById("decrease");
+const sizeEl = document.getElementById("size");
+const colorEl = document.getElementById("color");
+const clearAll = document.getElementById("clear");
+
 const ctx = canvas.getContext("2d");
 
-let size = 20;
+let size = 10;
 let isPressed = false;
 let color = "grey";
 
@@ -41,12 +47,22 @@ canvas.addEventListener("mouseup", (e) => {
 
 //draw the line as the mouse is pressed and moves
 canvas.addEventListener("mousemove", (e) => {
-  const x2 = e.offsetX;
-  const y2 = e.offsetY;
+  if (isPressed) {
+    const x2 = e.offsetX;
+    const y2 = e.offsetY;
 
-  drawCircle(x2, y2);
-  drawLine(x, y, x2, y2);
+    drawCircle(x2, y2);
+    drawLine(x, y, x2, y2);
 
-  x = x2;
-  y = y2;
+    x = x2;
+    y = y2;
+  }
 });
+
+//update size on screen
+function updateSizeOnScreeen() {
+  sizeEl.innerText = size;
+}
+
+//color change event, colorpicker
+colorEl.addEventListener("change", (e) => (color = e.target.value));
