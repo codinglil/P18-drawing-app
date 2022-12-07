@@ -41,3 +41,18 @@ canvas {
 .toolbox > *:last-child {
   margin-left: auto;
 }
+
+@media (max-width: 680px) {
+  canvas {
+    width: 450px;
+    height: 500px;
+  }
+  .toolbox {
+    width: 418px;
+  }
+  .toolbox > * {
+    font-size: 1.25rem;
+    width: 35px;
+    height: 35px;
+  }
+}
