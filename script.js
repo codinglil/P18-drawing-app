@@ -9,7 +9,7 @@ const ctx = canvas.getContext("2d");
 
 let size = 10;
 let isPressed = false;
-let color = "grey";
+let color = "black";
 
 let x;
 let y;
@@ -66,3 +66,21 @@ function updateSizeOnScreeen() {
 
 //color change event, colorpicker
 colorEl.addEventListener("change", (e) => (color = e.target.value));
+
+//size increase event
+increaseBtn.addEventListener("click", () => {
+  size += 2;
+  if (size > 50) {
+    size = 50;
+  }
+  updateSizeOnScreeen();
+});
+
+//size decrease event
+decreaseBtn.addEventListener("click", () => {
+  size -= 2;
+  if (size < 2) {
+    size = 2;
+  }
+  updateSizeOnScreeen();
+});
